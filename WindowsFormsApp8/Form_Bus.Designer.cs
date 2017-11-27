@@ -30,11 +30,11 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.label3 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
@@ -72,6 +72,17 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(278, 187);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
+            // label3
+            // 
+            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label3.Location = new System.Drawing.Point(109, 93);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(166, 94);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Dit incident heeft een hoge impact, maar heeft geen invloed op de huidige rit. De" +
+    " rit kan uitgereden worden, maar er moet wel actie worden ondernomen.";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // button1
             // 
             this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -87,6 +98,7 @@
             // button2
             // 
             this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button2.Enabled = false;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Location = new System.Drawing.Point(3, 96);
             this.button2.Name = "button2";
@@ -95,17 +107,6 @@
             this.button2.Text = "B-Incident";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // label1
-            // 
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(278, 68);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Impact";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label2
             // 
@@ -118,16 +119,16 @@
     " actie worden ondernomen.";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label3
+            // label1
             // 
-            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label3.Location = new System.Drawing.Point(109, 93);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(166, 94);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Dit incident heeft een hoge impact, maar heeft geen invloed op de huidige rit. De" +
-    " rit kan uitgereden worden, maar er moet wel actie worden ondernomen.";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(278, 68);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Impact";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Form_Bus
             // 

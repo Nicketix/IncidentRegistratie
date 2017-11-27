@@ -21,7 +21,7 @@ namespace WindowsFormsApp8
         {
             this.Hide();
 
-            using (Form_Bus_A FBA = new Form_Bus_A())
+            using (Form_Bus_A_v2 FBA = new Form_Bus_A_v2())
             {
                 FBA.ShowDialog(this);
             }
