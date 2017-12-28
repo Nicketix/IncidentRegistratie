@@ -15,6 +15,7 @@ namespace WindowsFormsApp8
         public Form_Bus_A_v2()
         {
             InitializeComponent();
+            textBox1.Select();
 
             //Systeemtijd
             label26.Text = DateTime.Now.ToString();
