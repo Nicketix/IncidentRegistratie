@@ -29,17 +29,20 @@ namespace WindowsFormsApp8
 
             comboBox6.Items.Add("8655");
 
-            comboBox7.Items.Add("Leeuwarden, Busstation");
-            comboBox7.Items.Add("Leeuwarden, Zaailand");
-            comboBox7.Items.Add("Leeuwarden, Harmonie");
-            comboBox7.Items.Add("Leeuwarden, Wissesdwinger");
-            comboBox7.Items.Add("Leeuwarden, Stenden Hogeschool");
-            comboBox7.Items.Add("Leeuwarden, NHL Hogeschool");
+            comboBox7.Items.Add("2");
+
+            comboBox8.Items.Add("Leeuwarden, Busstation");
+            comboBox8.Items.Add("Leeuwarden, Zaailand");
+            comboBox8.Items.Add("Leeuwarden, Harmonie");
+            comboBox8.Items.Add("Leeuwarden, Wissesdwinger");
+            comboBox8.Items.Add("Leeuwarden, Stenden Hogeschool");
+            comboBox8.Items.Add("Leeuwarden, NHL Hogeschool");
 
             comboBox4.SelectedIndex = 0;
             comboBox5.SelectedIndex = 0;
             comboBox6.SelectedIndex = 0;
             comboBox7.SelectedIndex = 0;
+            comboBox8.SelectedIndex = 0;
 
             listBox2.Items.Add("Leeuwarden, Busstation");
             listBox2.Items.Add("Leeuwarden, Zaailand");
@@ -55,6 +58,7 @@ namespace WindowsFormsApp8
             listBox1.Items.Add(textBox1.Text);
             textBox1.Clear();
         }
+
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -73,18 +77,6 @@ namespace WindowsFormsApp8
             else if (!checkBox2.Checked)
             {
                 comboBox2.Enabled = false;
-            }
-        }
-
-        private void checkBox3_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBox3.Checked)
-            {
-                comboBox3.Enabled = true;
-            }
-            else if (!checkBox3.Checked)
-            {
-                comboBox3.Enabled = false;
             }
         }
 
@@ -140,5 +132,6 @@ namespace WindowsFormsApp8
         {
             tableLayoutPanel21.Enabled = false;
         }
+
     }
 }
