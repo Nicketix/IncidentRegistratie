@@ -9,6 +9,5 @@ c:\users\nicketix\source\repos\WindowsFormsApp8\WindowsFormsApp8\obj\Debug\Windo
 c:\users\nicketix\source\repos\WindowsFormsApp8\WindowsFormsApp8\obj\Debug\WindowsFormsApp8.exe
 c:\users\nicketix\source\repos\WindowsFormsApp8\WindowsFormsApp8\obj\Debug\WindowsFormsApp8.pdb
 c:\users\nicketix\source\repos\WindowsFormsApp8\WindowsFormsApp8\obj\Debug\WindowsFormsApp8.Form_Bus.resources
-c:\users\nicketix\source\repos\WindowsFormsApp8\WindowsFormsApp8\obj\Debug\WindowsFormsApp8.Form_Bus_A.resources
 c:\users\nicketix\source\repos\WindowsFormsApp8\WindowsFormsApp8\obj\Debug\WindowsFormsApp8.Form_Bus_B.resources
 C:\Users\Nicketix\source\repos\WindowsFormsApp8\WindowsFormsApp8\obj\Debug\WindowsFormsApp8.Form_Bus_A_v2.resources

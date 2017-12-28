@@ -59,6 +59,13 @@ namespace WindowsFormsApp8
             textBox1.Clear();
         }
 
+        private void textBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                button1_Click(this, new EventArgs());
+            }
+        }
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -133,5 +140,6 @@ namespace WindowsFormsApp8
             tableLayoutPanel21.Enabled = false;
         }
 
+        
     }
 }
