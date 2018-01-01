@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Configuration;
+using System.Data.OleDb;
 
 namespace WindowsFormsApp8
 {
@@ -80,11 +82,11 @@ namespace WindowsFormsApp8
         {
             if (checkBox2.Checked)
             {
-                comboBox2.Enabled = true;
+                IncidentCombobox2.Enabled = true;
             }
             else if (!checkBox2.Checked)
             {
-                comboBox2.Enabled = false;
+                IncidentCombobox2.Enabled = false;
             }
         }
 
@@ -141,6 +143,33 @@ namespace WindowsFormsApp8
             tableLayoutPanel21.Enabled = false;
         }
 
-        
+        private void Form_Bus_A_v2_Load(object sender, EventArgs e)
+        {
+            IncidentCombobox1.DataSource = GetIncidentenTagsList();
+            IncidentCombobox2.DataSource = GetIncidentenTagsList();
+        }
+
+        private DataTable GetIncidentenTagsList()
+        {
+            DataTable dtIncidentenTags = new DataTable();
+
+            string connString = ConfigurationManager.ConnectionStrings["dbx"].ConnectionString;
+            string qwerty = "zakkenroller";
+            using (OleDbConnection con = new OleDbConnection(connString))
+            {
+                using (OleDbCommand cmd = new OleDbCommand("SELECT Incident_naam, COUNT(*) AS num_count FROM Incidenttags WHERE Tag_naam = '" + qwerty + "' OR Tag_naam = 'motor' OR Tag_naam = 'gebroken' GROUP BY Incident_naam ORDER BY 2 DESC", con))
+                {
+                    con.Open();
+
+                    OleDbDataReader reader = cmd.ExecuteReader();
+
+                    dtIncidentenTags.Load(reader);
+
+                    IncidentCombobox1.DisplayMember = "Incident_naam";
+                    IncidentCombobox2.DisplayMember = "Incident_naam";
+                }
+            }
+            return dtIncidentenTags;
+        }
     }
 }
