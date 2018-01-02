@@ -14,6 +14,8 @@ namespace WindowsFormsApp8
 {
     public partial class Form_Bus_A_v2 : Form
     {
+        string sqlMainQuery = "null";
+
         public Form_Bus_A_v2()
         {
             InitializeComponent();
@@ -59,6 +61,7 @@ namespace WindowsFormsApp8
         private void button1_Click(object sender, EventArgs e)
         {
             listBox1.Items.Add(textBox1.Text);
+            button4_Click(this, new EventArgs());
             textBox1.Clear();
         }
 
@@ -72,10 +75,7 @@ namespace WindowsFormsApp8
 
         private void button2_Click(object sender, EventArgs e)
         {
-            for (int i = listBox1.SelectedIndices.Count - 1; i >= 0; i--)
-            {
-                listBox1.Items.RemoveAt(listBox1.SelectedIndices[i]);
-            }
+            
         }
 
         private void checkBox2_CheckedChanged(object sender, EventArgs e)
@@ -94,6 +94,15 @@ namespace WindowsFormsApp8
         {
             tableLayoutPanel6.Enabled = false;
             tableLayoutPanel7.Enabled = true;
+            string categorie = IncidentCombobox1.Text;
+            if (categorie.StartsWith("SV") )
+            {
+                tableLayoutPanel24.Visible = true;
+            }
+            else if(categorie.StartsWith("MT"))
+            {
+                tableLayoutPanel24.Visible = false;
+            }
         }
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e) //Stap 2: Ja-button
@@ -145,8 +154,7 @@ namespace WindowsFormsApp8
 
         private void Form_Bus_A_v2_Load(object sender, EventArgs e)
         {
-            IncidentCombobox1.DataSource = GetIncidentenTagsList();
-            IncidentCombobox2.DataSource = GetIncidentenTagsList();
+            
         }
 
         private DataTable GetIncidentenTagsList()
@@ -154,10 +162,10 @@ namespace WindowsFormsApp8
             DataTable dtIncidentenTags = new DataTable();
 
             string connString = ConfigurationManager.ConnectionStrings["dbx"].ConnectionString;
-            string qwerty = "zakkenroller";
+
             using (OleDbConnection con = new OleDbConnection(connString))
             {
-                using (OleDbCommand cmd = new OleDbCommand("SELECT Incident_naam, COUNT(*) AS num_count FROM Incidenttags WHERE Tag_naam = '" + qwerty + "' OR Tag_naam = 'motor' OR Tag_naam = 'gebroken' GROUP BY Incident_naam ORDER BY 2 DESC", con))
+                using (OleDbCommand cmd = new OleDbCommand(sqlMainQuery, con))
                 {
                     con.Open();
 
@@ -170,6 +178,58 @@ namespace WindowsFormsApp8
                 }
             }
             return dtIncidentenTags;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            var list = new List<string>();
+            int i = 0;
+            foreach (var item in listBox1.Items)
+            {
+                list.Add(item.ToString());
+                i++;
+            }
+
+            if (i == 0)
+            {
+                sqlMainQuery = "SELECT Incident_naam, COUNT(*) AS num_count FROM Incidenttags";
+            }
+            else if (i == 1)
+            {
+                sqlMainQuery = "SELECT Incident_naam, COUNT(*) AS num_count FROM Incidenttags WHERE Tag_naam = '" + list[0] + "' GROUP BY Incident_naam ORDER BY 2 DESC";
+            }
+
+            else if (i == 2)
+            {
+                sqlMainQuery = "SELECT Incident_naam, COUNT(*) AS num_count FROM Incidenttags WHERE Tag_naam = '" + list[0] + "' OR Tag_naam = '" + list[1] + "' GROUP BY Incident_naam ORDER BY 2 DESC";
+            }
+
+            else if (i == 3)
+            {
+                sqlMainQuery = "SELECT Incident_naam, COUNT(*) AS num_count FROM Incidenttags WHERE Tag_naam = '" + list[0] + "' OR Tag_naam = '" + list[1] + "' OR Tag_naam = '" + list[2] + "' GROUP BY Incident_naam ORDER BY 2 DESC";
+            }
+
+            else if (i == 4)
+            {
+                sqlMainQuery = "SELECT Incident_naam, COUNT(*) AS num_count FROM Incidenttags WHERE Tag_naam = '" + list[0] + "' OR Tag_naam = '" + list[1] + "' OR Tag_naam = '" + list[2] + "' OR Tag_naam = '" + list[3] + "' GROUP BY Incident_naam ORDER BY 2 DESC";
+            }
+
+            else if (i == 5)
+            {
+                sqlMainQuery = "SELECT Incident_naam, COUNT(*) AS num_count FROM Incidenttags WHERE Tag_naam = '" + list[0] + "' OR Tag_naam = '" + list[1] + "' OR Tag_naam = '" + list[2] + "' OR Tag_naam = '" + list[3] + "' OR Tag_naam = '" + list[4] + "' GROUP BY Incident_naam ORDER BY 2 DESC";
+            }
+
+            IncidentCombobox1.DataSource = GetIncidentenTagsList();
+            IncidentCombobox2.DataSource = GetIncidentenTagsList();
+
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            for (int i = listBox1.SelectedIndices.Count - 1; i >= 0; i--)
+            {
+                listBox1.Items.RemoveAt(listBox1.SelectedIndices[i]);
+            }
         }
     }
 }
